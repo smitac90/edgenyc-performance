@@ -1,0 +1,36 @@
+name: Weekly PSI Field Snapshot
+
+on:
+  schedule:
+    - cron: "30 13 * * 1" # Mondays 13:30 UTC (approx 8:30 AM ET)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  psi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install deps
+        run: npm install
+
+      - name: Run PSI snapshot
+        env:
+          OUT_DIR: data
+          PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
+        run: node scripts/edgenyc-psi-weekly.mjs
+
+      - name: Commit data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: weekly psi field snapshot"
+          file_pattern: "data/*.csv"

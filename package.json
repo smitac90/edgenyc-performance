@@ -1,0 +1,14 @@
+{
+  "name": "edgenyc-performance",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lighthouse:daily": "node scripts/edgenyc-perf.mjs",
+    "psi:weekly": "node scripts/edgenyc-psi-weekly.mjs",
+    "crux:history": "node scripts/edgenyc-crux-history.mjs"
+  },
+  "devDependencies": {
+    "lighthouse": "^13.0.2"
+  }
+}
