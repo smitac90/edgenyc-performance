@@ -1,0 +1,36 @@
+name: Daily GSC Export
+
+on:
+  schedule:
+    - cron: "30 14 * * *" # 14:30 UTC (approx 9:30 AM ET)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  gsc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install deps
+        run: npm install
+
+      - name: Run GSC export
+        env:
+          OUT_DIR: data
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: node scripts/edgenyc-gsc-daily.mjs
+
+      - name: Commit data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: daily gsc export"
+          file_pattern: "data/*.csv"

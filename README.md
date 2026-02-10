@@ -7,6 +7,7 @@ This repo tracks performance over time for:
 ## What runs
 - **Daily Lighthouse (lab)**: appends rows to `data/edgenyc-daily.csv` (mobile + desktop).
 - **Daily alerts**: checks the latest run against thresholds and opens an issue if breached.
+- **Daily GSC export**: appends rows to `data/edgenyc-gsc-pages-daily.csv` and `data/edgenyc-gsc-queries-daily.csv`.
 - **Weekly PSI field snapshot (RUM)**: appends rows to `data/edgenyc-psi-weekly.csv`.
 - **Weekly summary**: writes `reports/weekly-summary.md` with last 7 days averages + deltas.
 
@@ -18,6 +19,7 @@ Edit `config/edgenyc.json` to:
 - Tune Lighthouse strategies
 - Control how many Lighthouse runs are averaged (`lighthouse_runs`)
 - Update alert thresholds
+- Configure GSC export (site_url, lag, row limits)
 
 ## Local usage
 Install deps:
@@ -28,6 +30,12 @@ npm install
 Run daily Lighthouse (writes to `data/` by default):
 ```bash
 node scripts/edgenyc-perf.mjs
+```
+
+Run daily GSC export:
+```bash
+export GSC_SERVICE_ACCOUNT_JSON='{"type":"service_account",...}'
+node scripts/edgenyc-gsc-daily.mjs
 ```
 
 Run weekly PSI snapshot:
@@ -65,11 +73,23 @@ export OUT_DIR="/Users/andysmith/Library/CloudStorage/Box-Box/Andy's Box Drive/C
 node scripts/edgenyc-perf.mjs
 ```
 
+## GSC setup (service account)
+1. Enable the **Google Search Console API** in your Google Cloud project.
+2. Create a **service account** and download the JSON key.
+3. Add the service account email as an **owner** on your Search Console property.
+4. Add the JSON as a GitHub secret: `GSC_SERVICE_ACCOUNT_JSON`.
+
+Notes:
+- `gsc.site_url` must match your Search Console property URL exactly (including trailing slash for URL-prefix properties).
+- GSC Search Analytics dates are interpreted in Pacific Time.
+
 ## GitHub Secrets
-Set this secret in GitHub:
+Set these secrets in GitHub:
 - `PSI_API_KEY`
+- `GSC_SERVICE_ACCOUNT_JSON`
 
 ## Schedule (UTC)
 - Daily Lighthouse: 13:00 UTC (approx 8:00 AM ET)
+- Daily GSC: 14:30 UTC (approx 9:30 AM ET)
 - Weekly PSI: Mondays 13:30 UTC (approx 8:30 AM ET)
 - Weekly summary: Mondays 14:00 UTC (approx 9:00 AM ET)

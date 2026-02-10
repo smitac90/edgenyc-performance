@@ -7,11 +7,13 @@
     "lighthouse:daily": "node scripts/edgenyc-perf.mjs",
     "psi:weekly": "node scripts/edgenyc-psi-weekly.mjs",
     "crux:history": "node scripts/edgenyc-crux-history.mjs",
+    "gsc:daily": "node scripts/edgenyc-gsc-daily.mjs",
     "alerts": "node scripts/edgenyc-alerts.mjs",
     "summary:weekly": "node scripts/edgenyc-weekly-summary.mjs",
     "sync:box": "node scripts/sync-to-box.mjs"
   },
   "devDependencies": {
+    "google-auth-library": "^9.14.2",
     "lighthouse": "^13.0.2"
   }
 }
