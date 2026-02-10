@@ -1,0 +1,38 @@
+name: Weekly SEO Summary
+
+on:
+  schedule:
+    - cron: "0 14 * * 1" # Mondays 14:00 UTC (approx 9:00 AM ET)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install deps
+        run: npm install
+
+      - name: Sync with remote
+        run: git pull --rebase
+
+      - name: Generate SEO summary
+        run: node scripts/edgenyc-seo-summary.mjs
+
+      - name: Commit summary
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: weekly seo summary"
+          file_pattern: "reports/seo-summary.md"

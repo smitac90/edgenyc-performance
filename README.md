@@ -10,6 +10,7 @@ This repo tracks performance over time for:
 - **Daily GSC export**: appends rows to `data/edgenyc-gsc-pages-daily.csv` and `data/edgenyc-gsc-queries-daily.csv`.
 - **Weekly PSI field snapshot (RUM)**: appends rows to `data/edgenyc-psi-weekly.csv`.
 - **Weekly summary**: writes `reports/weekly-summary.md` with last 7 days averages + deltas.
+- **Weekly SEO summary**: writes `reports/seo-summary.md` combining GSC + Semrush top pages.
 - **Semrush pages import (manual)**: appends rows to `data/edgenyc-semrush-pages.csv`.
 
 Schedules live in `.github/workflows/`.
@@ -45,9 +46,14 @@ export PSI_API_KEY="YOUR_API_KEY"
 node scripts/edgenyc-psi-weekly.mjs
 ```
 
-Generate weekly summary:
+Generate weekly performance summary:
 ```bash
 node scripts/edgenyc-weekly-summary.mjs
+```
+
+Generate weekly SEO summary:
+```bash
+node scripts/edgenyc-seo-summary.mjs
 ```
 
 Check alerts:
@@ -101,4 +107,5 @@ Set these secrets in GitHub:
 - Daily Lighthouse: 13:00 UTC (approx 8:00 AM ET)
 - Daily GSC: 14:30 UTC (approx 9:30 AM ET)
 - Weekly PSI: Mondays 13:30 UTC (approx 8:30 AM ET)
-- Weekly summary: Mondays 14:00 UTC (approx 9:00 AM ET)
+- Weekly performance summary: Mondays 14:00 UTC (approx 9:00 AM ET)
+- Weekly SEO summary: Mondays 14:00 UTC (approx 9:00 AM ET)

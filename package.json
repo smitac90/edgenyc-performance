@@ -9,6 +9,7 @@
     "crux:history": "node scripts/edgenyc-crux-history.mjs",
     "gsc:daily": "node scripts/edgenyc-gsc-daily.mjs",
     "semrush:import-pages": "node scripts/edgenyc-semrush-import-pages.mjs",
+    "seo:summary": "node scripts/edgenyc-seo-summary.mjs",
     "alerts": "node scripts/edgenyc-alerts.mjs",
     "summary:weekly": "node scripts/edgenyc-weekly-summary.mjs",
     "sync:box": "node scripts/sync-to-box.mjs"
