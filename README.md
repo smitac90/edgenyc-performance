@@ -10,6 +10,7 @@ This repo tracks performance over time for:
 - **Daily GSC export**: appends rows to `data/edgenyc-gsc-pages-daily.csv` and `data/edgenyc-gsc-queries-daily.csv`.
 - **Weekly PSI field snapshot (RUM)**: appends rows to `data/edgenyc-psi-weekly.csv`.
 - **Weekly summary**: writes `reports/weekly-summary.md` with last 7 days averages + deltas.
+- **Semrush pages import (manual)**: appends rows to `data/edgenyc-semrush-pages.csv`.
 
 Schedules live in `.github/workflows/`.
 
@@ -52,6 +53,14 @@ node scripts/edgenyc-weekly-summary.mjs
 Check alerts:
 ```bash
 node scripts/edgenyc-alerts.mjs
+```
+
+### Semrush Top Pages import (manual)
+1. Export CSV from Semrush **Organic Research → Top Pages**.
+2. Drop the CSV in `data/incoming/`.
+3. Run:
+```bash
+node scripts/edgenyc-semrush-import-pages.mjs
 ```
 
 ### Sync results to Box (hybrid mode)
