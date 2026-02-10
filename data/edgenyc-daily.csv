@@ -1,0 +1,5 @@
+ISO timestamp of the run (UTC),Page URL measured,Lighthouse Performance score (0-100),Largest Contentful Paint (ms),Cumulative Layout Shift (unitless),Interaction to Next Paint (ms),Time to First Byte (ms),Total Blocking Time (ms),Speed Index (ms)
+target: n/a,target: n/a,target: >= 90,target: <= 2500,target: <= 0.1,target: <= 200,target: <= 800,target: <= 200,target: <= 3400
+timestamp_iso,url,lh_performance,lcp_ms,cls,inp_ms,ttfb_ms,tbt_ms,speed_index_ms
+2026-02-10T00:03:40.914Z,https://edgenyc.com/,29,8580.1785,0.04416183826471331,,29,8074.482999999995,12563.01865077873
+2026-02-10T00:03:40.914Z,https://edgenyc.com/get-tickets,30,14725.3435,0,,21,4020.5,8210.06968951371
