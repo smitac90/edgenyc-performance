@@ -1,7 +1,17 @@
 {
   "urls": [
     "https://edgenyc.com/",
-    "https://edgenyc.com/get-tickets"
+    "https://edgenyc.com/get-tickets",
+    "https://www.edgenyc.com/",
+    "https://www.edgenyc.com/get-tickets/",
+    "https://www.edgenyc.com/city-climb/",
+    "https://www.edgenyc.com/marquee-skydeck/",
+    "https://www.edgenyc.com/things-to-do/eat-drink/",
+    "https://www.edgenyc.com/advance-saver-ticket/",
+    "https://www.edgenyc.com/visit/getting-here/",
+    "https://www.edgenyc.com/events/marquee-skydeck/",
+    "https://www.edgenyc.com/visit/getting-here/edge-menu/",
+    "https://www.edgenyc.com/events/sky-high-yoga/"
   ],
   "lighthouse_strategies": [
     "mobile",
