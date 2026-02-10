@@ -1,0 +1,63 @@
+ISO timestamp of the run (UTC),Date in PT used for the query,Search query,Clicks,Impressions,Click-through rate,Average position
+target: n/a,target: n/a,target: n/a,target: n/a,target: n/a,target: n/a,target: n/a
+timestamp_iso,date,query,clicks,impressions,ctr,position
+2026-02-10T00:34:39.569Z,2026-02-07,alex climbing building,0,2,0,6
+2026-02-10T00:34:39.569Z,2026-02-07,best things to do in new york city,0,1,0,20
+2026-02-10T00:34:39.569Z,2026-02-07,best winter activities nyc,0,1,0,16
+2026-02-10T00:34:39.569Z,2026-02-07,building climb,0,1,0,7
+2026-02-10T00:34:39.569Z,2026-02-07,city climb,0,55,0,5.7272727272727275
+2026-02-10T00:34:39.569Z,2026-02-07,city climb at edge,0,15,0,12
+2026-02-10T00:34:39.569Z,2026-02-07,city climb at edge nyc,0,1,0,17
+2026-02-10T00:34:39.569Z,2026-02-07,city climb at hudson yards,0,2,0,14.5
+2026-02-10T00:34:39.569Z,2026-02-07,city climb edge,0,11,0,12.727272727272727
+2026-02-10T00:34:39.569Z,2026-02-07,city climb edge new york,0,1,0,3
+2026-02-10T00:34:39.569Z,2026-02-07,city climb edge nyc,0,1,0,17
+2026-02-10T00:34:39.569Z,2026-02-07,city climb en edge,0,3,0,17
+2026-02-10T00:34:39.569Z,2026-02-07,city climb new york,0,28,0,7.321428571428571
+2026-02-10T00:34:39.569Z,2026-02-07,city climb nyc,0,11,0,7.909090909090909
+2026-02-10T00:34:39.569Z,2026-02-07,city climb nyc tickets and schedule,0,2,0,15.5
+2026-02-10T00:34:39.569Z,2026-02-07,city climb the edge,0,2,0,9
+2026-02-10T00:34:39.569Z,2026-02-07,city climb tickets,0,13,0,11.846153846153847
+2026-02-10T00:34:39.569Z,2026-02-07,climb building nyc,0,5,0,4
+2026-02-10T00:34:39.569Z,2026-02-07,climb edge nyc,0,1,0,3
+2026-02-10T00:34:39.569Z,2026-02-07,climb the edge,0,5,0,5.4
+2026-02-10T00:34:39.569Z,2026-02-07,climb the edge new york,0,3,0,12.333333333333334
+2026-02-10T00:34:39.569Z,2026-02-07,climb the edge nyc,0,19,0,5.2105263157894735
+2026-02-10T00:34:39.569Z,2026-02-07,climbs building,0,1,0,3
+2026-02-10T00:34:39.569Z,2026-02-07,edge city climb,0,3,0,2.666666666666667
+2026-02-10T00:34:39.569Z,2026-02-07,edge city climb nyc,0,1,0,4
+2026-02-10T00:34:39.569Z,2026-02-07,edge climb,0,4,0,3
+2026-02-10T00:34:39.569Z,2026-02-07,edge climb nyc,0,1,0,4
+2026-02-10T00:34:39.569Z,2026-02-07,edge climbing nyc,0,3,0,3
+2026-02-10T00:34:39.569Z,2026-02-07,edge nyc climb,0,3,0,4
+2026-02-10T00:34:39.569Z,2026-02-07,edge skyscraper climb,0,3,0,1.6666666666666665
+2026-02-10T00:34:39.569Z,2026-02-07,entradas para city climb,0,4,0,1
+2026-02-10T00:34:39.569Z,2026-02-07,escalada rascacielos nueva york,0,2,0,5
+2026-02-10T00:34:39.569Z,2026-02-07,escalar edificio new york,0,1,0,3
+2026-02-10T00:34:39.569Z,2026-02-07,high line,0,1,0,1
+2026-02-10T00:34:39.569Z,2026-02-07,mejores miradores de nueva york,0,1,0,1
+2026-02-10T00:34:39.569Z,2026-02-07,new york city climb,0,5,0,13.6
+2026-02-10T00:34:39.569Z,2026-02-07,new york climb,0,2,0,15
+2026-02-10T00:34:39.569Z,2026-02-07,new york edge city climb ticket,0,32,0,9.125
+2026-02-10T00:34:39.569Z,2026-02-07,nyc building climb,0,1,0,5
+2026-02-10T00:34:39.569Z,2026-02-07,pier 57,0,1,0,1
+2026-02-10T00:34:39.569Z,2026-02-07,place to visit nyc,0,1,0,24
+2026-02-10T00:34:39.569Z,2026-02-07,taiwan building climb,0,1,0,2
+2026-02-10T00:34:39.569Z,2026-02-07,the city climb,0,3,0,3.6666666666666665
+2026-02-10T00:34:39.569Z,2026-02-07,the climb new york,0,4,0,1
+2026-02-10T00:34:39.569Z,2026-02-07,the climb ny,0,1,0,1
+2026-02-10T00:34:39.569Z,2026-02-07,the climb nyc,0,2,0,7.5
+2026-02-10T00:34:39.569Z,2026-02-07,the edge city climb,0,1,0,4
+2026-02-10T00:34:39.569Z,2026-02-07,the edge city climb nyc,0,1,0,16
+2026-02-10T00:34:39.569Z,2026-02-07,the edge climb,0,3,0,4
+2026-02-10T00:34:39.569Z,2026-02-07,the edge climb nyc,0,2,0,4.5
+2026-02-10T00:34:39.569Z,2026-02-07,the edge climbing,0,3,0,1
+2026-02-10T00:34:39.569Z,2026-02-07,the edge new york city climb,0,2,0,10
+2026-02-10T00:34:39.569Z,2026-02-07,the edge new york climb,0,2,0,9.5
+2026-02-10T00:34:39.569Z,2026-02-07,the edge nyc climb,0,3,0,3.6666666666666665
+2026-02-10T00:34:39.569Z,2026-02-07,the ledge new york,0,1,0,1
+2026-02-10T00:34:39.569Z,2026-02-07,things to do in new york,0,1,0,13
+2026-02-10T00:34:39.569Z,2026-02-07,things to do in nyc,0,2,0,40.5
+2026-02-10T00:34:39.569Z,2026-02-07,things to do near me,0,1,0,19
+2026-02-10T00:34:39.569Z,2026-02-07,tourist attractions in new york city,0,1,0,53
+2026-02-10T00:34:39.569Z,2026-02-07,urban climbers,0,1,0,4

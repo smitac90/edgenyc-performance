@@ -1,0 +1,5 @@
+ISO timestamp of the run (UTC),Date in PT used for the query,Page URL,Clicks,Impressions,Click-through rate,Average position
+target: n/a,target: n/a,target: n/a,target: n/a,target: n/a,target: n/a,target: n/a
+timestamp_iso,date,url,clicks,impressions,ctr,position
+2026-02-10T00:34:39.569Z,2026-02-07,https://www.edgenyc.com/en/buy-tickets,2,403,0.004962779156327543,7.429280397022333
+2026-02-10T00:34:39.569Z,2026-02-07,https://www.edgenyc.com/en/sky-skate,0,1,0,6
