@@ -45,6 +45,18 @@ Check alerts:
 node scripts/edgenyc-alerts.mjs
 ```
 
+### Sync results to Box (hybrid mode)
+This pulls the latest repo data and copies CSVs + reports into your Box folder.
+```bash
+node scripts/sync-to-box.mjs
+```
+
+You can override the Box path with:
+```bash
+export BOX_DIR="/Users/andysmith/Library/CloudStorage/Box-Box/Andy's Box Drive/Codex Automations/Lighthouse Reports"
+node scripts/sync-to-box.mjs
+```
+
 ### Save to Box instead of repo
 Set `OUT_DIR` to your Box folder when running locally:
 ```bash

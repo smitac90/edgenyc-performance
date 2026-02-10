@@ -8,7 +8,8 @@
     "psi:weekly": "node scripts/edgenyc-psi-weekly.mjs",
     "crux:history": "node scripts/edgenyc-crux-history.mjs",
     "alerts": "node scripts/edgenyc-alerts.mjs",
-    "summary:weekly": "node scripts/edgenyc-weekly-summary.mjs"
+    "summary:weekly": "node scripts/edgenyc-weekly-summary.mjs",
+    "sync:box": "node scripts/sync-to-box.mjs"
   },
   "devDependencies": {
     "lighthouse": "^13.0.2"
