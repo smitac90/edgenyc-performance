@@ -24,7 +24,7 @@
     "ttfb_p75_ms": 800
   },
   "gsc": {
-    "site_url": "https://www.edgenyc.com/en/",
+    "site_url": "https://www.edgenyc.com/",
     "lag_days": 2,
     "row_limit_pages": 1000,
     "row_limit_queries": 1000,
