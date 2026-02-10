@@ -16,6 +16,7 @@ Schedules live in `.github/workflows/`.
 Edit `config/edgenyc.json` to:
 - Add/remove URLs
 - Tune Lighthouse strategies
+- Control how many Lighthouse runs are averaged (`lighthouse_runs`)
 - Update alert thresholds
 
 ## Local usage

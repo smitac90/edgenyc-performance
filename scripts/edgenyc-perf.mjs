@@ -10,6 +10,7 @@ const config = JSON.parse(configRaw);
 
 const urls = config.urls || [];
 const strategies = config.lighthouse_strategies || ["mobile", "desktop"];
+const runs = Math.max(1, Number(config.lighthouse_runs || 1));
 const thresholds = config.thresholds || {};
 
 const outDir = process.env.OUT_DIR || "data";
@@ -132,15 +133,38 @@ function runLighthouse(url, strategy) {
   };
 }
 
+function avg(values) {
+  const nums = values.filter((v) => Number.isFinite(v));
+  if (!nums.length) return null;
+  return nums.reduce((a, b) => a + b, 0) / nums.length;
+}
+
+function aggregateRuns(url, strategy) {
+  const samples = [];
+  for (let i = 0; i < runs; i += 1) {
+    samples.push(runLighthouse(url, strategy));
+  }
+
+  return {
+    perf: avg(samples.map((s) => s.perf)),
+    lcp_ms: avg(samples.map((s) => s.lcp_ms)),
+    cls: avg(samples.map((s) => s.cls)),
+    inp_ms: avg(samples.map((s) => s.inp_ms)),
+    ttfb_ms: avg(samples.map((s) => s.ttfb_ms)),
+    tbt_ms: avg(samples.map((s) => s.tbt_ms)),
+    speed_index_ms: avg(samples.map((s) => s.speed_index_ms)),
+  };
+}
+
 const rows = [];
 for (const url of urls) {
   for (const strategy of strategies) {
-    const result = runLighthouse(url, strategy);
+    const result = aggregateRuns(url, strategy);
     const row = [
       nowIso,
       url,
       strategy,
-      result.perf,
+      result.perf ?? "",
       result.lcp_ms ?? "",
       result.cls ?? "",
       result.inp_ms ?? "",

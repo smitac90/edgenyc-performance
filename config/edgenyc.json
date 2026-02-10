@@ -7,6 +7,7 @@
     "mobile",
     "desktop"
   ],
+  "lighthouse_runs": 2,
   "thresholds": {
     "lh_performance": 90,
     "lcp_ms": 2500,
