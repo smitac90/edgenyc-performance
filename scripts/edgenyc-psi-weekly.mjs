@@ -11,10 +11,12 @@ if (!apiKey) {
   process.exit(1);
 }
 
-const urls = [
-  "https://edgenyc.com/",
-  "https://edgenyc.com/get-tickets",
-];
+const configPath = process.env.CONFIG_PATH || "config/edgenyc.json";
+const configRaw = readFileSync(configPath, "utf8");
+const config = JSON.parse(configRaw);
+
+const urls = config.urls || [];
+const thresholds = config.psi_thresholds || {};
 
 const outDir = process.env.OUT_DIR || "data";
 const outFile = `${outDir}/edgenyc-psi-weekly.csv`;
@@ -45,10 +47,10 @@ const targets = [
   "target: n/a",
   "target: n/a",
   "target: url preferred",
-  "target: <= 2500",
-  "target: <= 0.1",
-  "target: <= 200",
-  "target: <= 800",
+  `target: <= ${thresholds.lcp_p75_ms ?? 2500}`,
+  `target: <= ${thresholds.cls_p75 ?? 0.1}`,
+  `target: <= ${thresholds.inp_p75_ms ?? 200}`,
+  `target: <= ${thresholds.ttfb_p75_ms ?? 800}`,
 ];
 
 const header = [
@@ -57,9 +59,28 @@ const header = [
   columns.join(","),
 ].join("\n") + "\n";
 
-if (!existsSync(outFile)) {
-  writeFileSync(outFile, header, "utf8");
+function ensureHeader(filePath) {
+  if (!existsSync(filePath)) {
+    writeFileSync(filePath, header, "utf8");
+    return;
+  }
+
+  const existing = readFileSync(filePath, "utf8");
+  const lines = existing.split(/\r?\n/);
+  const currentColumns = lines[2] || "";
+  if (currentColumns.trim() === columns.join(",")) return;
+
+  let startIdx = 0;
+  if (lines[0]?.startsWith("ISO timestamp") && lines[2]?.includes("timestamp_iso")) {
+    startIdx = 3;
+  }
+
+  const rest = lines.slice(startIdx).filter((line, idx, arr) => !(idx === arr.length - 1 && line === ""));
+  const updated = header + (rest.length ? rest.join("\n") + "\n" : "");
+  writeFileSync(filePath, updated, "utf8");
 }
+
+ensureHeader(outFile);
 
 function metricP75(metrics, key) {
   return metrics?.[key]?.percentile;

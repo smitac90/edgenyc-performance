@@ -6,7 +6,9 @@
   "scripts": {
     "lighthouse:daily": "node scripts/edgenyc-perf.mjs",
     "psi:weekly": "node scripts/edgenyc-psi-weekly.mjs",
-    "crux:history": "node scripts/edgenyc-crux-history.mjs"
+    "crux:history": "node scripts/edgenyc-crux-history.mjs",
+    "alerts": "node scripts/edgenyc-alerts.mjs",
+    "summary:weekly": "node scripts/edgenyc-weekly-summary.mjs"
   },
   "devDependencies": {
     "lighthouse": "^13.0.2"

@@ -4,10 +4,13 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync, appendFileSync } fr
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
-const urls = [
-  "https://edgenyc.com/",
-  "https://edgenyc.com/get-tickets",
-];
+const configPath = process.env.CONFIG_PATH || "config/edgenyc.json";
+const configRaw = readFileSync(configPath, "utf8");
+const config = JSON.parse(configRaw);
+
+const urls = config.urls || [];
+const strategies = config.lighthouse_strategies || ["mobile", "desktop"];
+const thresholds = config.thresholds || {};
 
 const outDir = process.env.OUT_DIR || "data";
 const outFile = `${outDir}/edgenyc-daily.csv`;
@@ -17,6 +20,7 @@ mkdirSync(outDir, { recursive: true });
 const columns = [
   "timestamp_iso",
   "url",
+  "strategy",
   "lh_performance",
   "lcp_ms",
   "cls",
@@ -29,6 +33,7 @@ const columns = [
 const descriptions = [
   "ISO timestamp of the run (UTC)",
   "Page URL measured",
+  "Lighthouse strategy (mobile|desktop)",
   "Lighthouse Performance score (0-100)",
   "Largest Contentful Paint (ms)",
   "Cumulative Layout Shift (unitless)",
@@ -41,13 +46,14 @@ const descriptions = [
 const targets = [
   "target: n/a",
   "target: n/a",
-  "target: >= 90",
-  "target: <= 2500",
-  "target: <= 0.1",
-  "target: <= 200",
-  "target: <= 800",
-  "target: <= 200",
-  "target: <= 3400",
+  "target: n/a",
+  `target: >= ${thresholds.lh_performance ?? 90}`,
+  `target: <= ${thresholds.lcp_ms ?? 2500}`,
+  `target: <= ${thresholds.cls ?? 0.1}`,
+  `target: <= ${thresholds.inp_ms ?? 200}`,
+  `target: <= ${thresholds.ttfb_ms ?? 800}`,
+  `target: <= ${thresholds.tbt_ms ?? 200}`,
+  `target: <= ${thresholds.speed_index_ms ?? 3400}`,
 ];
 
 const header = [
@@ -56,14 +62,33 @@ const header = [
   columns.join(","),
 ].join("\n") + "\n";
 
-if (!existsSync(outFile)) {
-  writeFileSync(outFile, header, "utf8");
+function ensureHeader(filePath) {
+  if (!existsSync(filePath)) {
+    writeFileSync(filePath, header, "utf8");
+    return;
+  }
+
+  const existing = readFileSync(filePath, "utf8");
+  const lines = existing.split(/\r?\n/);
+  const currentColumns = lines[2] || "";
+  if (currentColumns.trim() === columns.join(",")) return;
+
+  let startIdx = 0;
+  if (lines[0]?.startsWith("ISO timestamp") && lines[2]?.includes("timestamp_iso")) {
+    startIdx = 3;
+  }
+
+  const rest = lines.slice(startIdx).filter((line, idx, arr) => !(idx === arr.length - 1 && line === ""));
+  const updated = header + (rest.length ? rest.join("\n") + "\n" : "");
+  writeFileSync(filePath, updated, "utf8");
 }
+
+ensureHeader(outFile);
 
 const nowIso = new Date().toISOString();
 
-function runLighthouse(url) {
-  const tmpPath = join(tmpdir(), `lh-${Date.now()}-${Math.random().toString(36).slice(2)}.json`);
+function runLighthouse(url, strategy) {
+  const tmpPath = join(tmpdir(), `lh-${strategy}-${Date.now()}-${Math.random().toString(36).slice(2)}.json`);
   const args = [
     "lighthouse",
     url,
@@ -74,11 +99,15 @@ function runLighthouse(url) {
     "--chrome-flags=--headless=new --no-sandbox --disable-gpu",
   ];
 
+  if (strategy === "desktop") {
+    args.push("--preset=desktop");
+  }
+
   try {
     execFileSync("npx", args, { stdio: "ignore" });
   } catch (err) {
     throw new Error(
-      `Failed to run Lighthouse for ${url}. Make sure Node.js is installed and lighthouse can run (npx lighthouse ...).`
+      `Failed to run Lighthouse (${strategy}) for ${url}. Make sure Node.js is installed and lighthouse can run (npx lighthouse ...).`
     );
   }
 
@@ -105,19 +134,22 @@ function runLighthouse(url) {
 
 const rows = [];
 for (const url of urls) {
-  const result = runLighthouse(url);
-  const row = [
-    nowIso,
-    url,
-    result.perf,
-    result.lcp_ms ?? "",
-    result.cls ?? "",
-    result.inp_ms ?? "",
-    result.ttfb_ms ?? "",
-    result.tbt_ms ?? "",
-    result.speed_index_ms ?? "",
-  ].join(",");
-  rows.push(row);
+  for (const strategy of strategies) {
+    const result = runLighthouse(url, strategy);
+    const row = [
+      nowIso,
+      url,
+      strategy,
+      result.perf,
+      result.lcp_ms ?? "",
+      result.cls ?? "",
+      result.inp_ms ?? "",
+      result.ttfb_ms ?? "",
+      result.tbt_ms ?? "",
+      result.speed_index_ms ?? "",
+    ].join(",");
+    rows.push(row);
+  }
 }
 
 appendFileSync(outFile, rows.join("\n") + "\n", "utf8");

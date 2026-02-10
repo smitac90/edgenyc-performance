@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   lighthouse:
@@ -26,13 +27,25 @@ jobs:
       - name: Install deps
         run: npm install
 
-      - name: Run Lighthouse
+      - name: Run Lighthouse (mobile + desktop)
         env:
           OUT_DIR: data
         run: node scripts/edgenyc-perf.mjs
 
-      - name: Commit data
+      - name: Check thresholds
+        id: alerts
+        run: node scripts/edgenyc-alerts.mjs
+
+      - name: Create issue if alerts
+        if: steps.alerts.outputs.has_alerts == 'true'
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "Performance regression alert"
+          content-filepath: reports/alerts.md
+          labels: performance,alert
+
+      - name: Commit data + alerts
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: daily lighthouse report"
-          file_pattern: "data/*.csv"
+          file_pattern: "data/*.csv reports/alerts.md"

@@ -1,0 +1,25 @@
+{
+  "urls": [
+    "https://edgenyc.com/",
+    "https://edgenyc.com/get-tickets"
+  ],
+  "lighthouse_strategies": [
+    "mobile",
+    "desktop"
+  ],
+  "thresholds": {
+    "lh_performance": 90,
+    "lcp_ms": 2500,
+    "cls": 0.1,
+    "inp_ms": 200,
+    "ttfb_ms": 800,
+    "tbt_ms": 200,
+    "speed_index_ms": 3400
+  },
+  "psi_thresholds": {
+    "lcp_p75_ms": 2500,
+    "cls_p75": 0.1,
+    "inp_p75_ms": 200,
+    "ttfb_p75_ms": 800
+  }
+}
