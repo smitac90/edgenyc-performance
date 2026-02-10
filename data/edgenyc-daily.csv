@@ -1,5 +1,25 @@
-ISO timestamp of the run (UTC),Page URL measured,Lighthouse Performance score (0-100),Largest Contentful Paint (ms),Cumulative Layout Shift (unitless),Interaction to Next Paint (ms),Time to First Byte (ms),Total Blocking Time (ms),Speed Index (ms)
-target: n/a,target: n/a,target: >= 90,target: <= 2500,target: <= 0.1,target: <= 200,target: <= 800,target: <= 200,target: <= 3400
-timestamp_iso,url,lh_performance,lcp_ms,cls,inp_ms,ttfb_ms,tbt_ms,speed_index_ms
+ISO timestamp of the run (UTC),Page URL measured,Lighthouse strategy (mobile|desktop),Lighthouse Performance score (0-100),Largest Contentful Paint (ms),Cumulative Layout Shift (unitless),Interaction to Next Paint (ms),Time to First Byte (ms),Total Blocking Time (ms),Speed Index (ms)
+target: n/a,target: n/a,target: n/a,target: >= 90,target: <= 2500,target: <= 0.1,target: <= 200,target: <= 800,target: <= 200,target: <= 3400
+timestamp_iso,url,strategy,lh_performance,lcp_ms,cls,inp_ms,ttfb_ms,tbt_ms,speed_index_ms
 2026-02-10T00:03:40.914Z,https://edgenyc.com/,29,8580.1785,0.04416183826471331,,29,8074.482999999995,12563.01865077873
 2026-02-10T00:03:40.914Z,https://edgenyc.com/get-tickets,30,14725.3435,0,,21,4020.5,8210.06968951371
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/,mobile,27,15488.38875,0.022080919132356654,,29,9690.423249999998,14120.869205094143
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/,desktop,47.5,2690.9405749999996,0,,30.5,1099.7499999999998,3876.428769860207
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/get-tickets/,mobile,25.5,28824.460734999997,0,,33,4082.9398749999973,11656.475512218221
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/get-tickets/,desktop,57.5,3748.407,0,,29.5,428.4999999999993,2299.076165240711
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/city-climb/,mobile,26,25086.456499999997,0,,31,5404,16816.626825669107
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/city-climb/,desktop,53,2372.10675,0,,28.5,749.1223749999984,3317.739355380233
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/marquee-skydeck/,mobile,30.5,19300.386875000004,0,,51,3945.4999999999964,10163.335517548516
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/marquee-skydeck/,desktop,68.5,2039.8819999999998,0.0012751597933631032,,27,372.2499999999991,2435.8423189607233
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/things-to-do/eat-drink/,mobile,31.5,20230.002375,0,,27,3066.829384999992,10042.113266838543
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/things-to-do/eat-drink/,desktop,65,2435.2665,0,,25.5,458.49999999999955,1764.7968753864752
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/advance-saver-ticket/,mobile,26,24996.080125,0,,62,3842.5000000000036,11086.663103885108
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/advance-saver-ticket/,desktop,65.5,3119.1684999999998,0,,27.5,291.7499999999998,2421.7104363373296
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/visit/getting-here/,mobile,27,24344.22775,0,,36,5824.749999999997,8879.74467432335
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/visit/getting-here/,desktop,60.5,2068.6077999999998,0,,34,591.2500000000003,2181.954028779767
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/events/marquee-skydeck/,mobile,32,14937.973500000002,0,,360.5,4275.250000000002,7074.310856182413
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/events/marquee-skydeck/,desktop,63.5,2951.0852499999996,0,,27,365.9547500000001,2084.6068577212445
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/visit/getting-here/edge-menu/,mobile,30,16499.970375,0,,391,3660.499999999998,8685.403977747372
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/visit/getting-here/edge-menu/,desktop,73,1920.8820000000003,0,,34,337.25000000000045,2004.3998211252378
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/events/sky-high-yoga/,mobile,26.5,29202.931499999988,0,,27.5,3033.2954999999974,11778.856633474492
+2026-02-10T14:22:54.765Z,https://www.edgenyc.com/events/sky-high-yoga/,desktop,60.5,2830.45825,0.0007807985290254794,,27,369.50000000000045,2991.070722627669
