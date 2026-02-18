@@ -1,15 +1,15 @@
-name: Weekly PSI Field Snapshot
+name: Daily CWV Field Snapshot
 
 on:
   schedule:
-    - cron: "30 13 * * 1" # Mondays 13:30 UTC (approx 8:30 AM ET)
+    - cron: "0 15 * * *" # 15:00 UTC daily (approx 10:00 AM ET)
   workflow_dispatch: {}
 
 permissions:
   contents: write
 
 jobs:
-  psi:
+  cwv:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,14 +28,14 @@ jobs:
       - name: Sync with remote
         run: git pull --rebase
 
-      - name: Run PSI snapshot
+      - name: Run CWV snapshot (CrUX)
         env:
           OUT_DIR: data
-          PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
-        run: node scripts/edgenyc-psi-weekly.mjs
+          CRUX_API_KEY: ${{ secrets.CRUX_API_KEY }}
+        run: node scripts/edgenyc-cwv-daily.mjs
 
       - name: Commit data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: weekly psi field snapshot"
+          commit_message: "chore: daily cwv snapshot"
           file_pattern: "data/*.csv"

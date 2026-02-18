@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "lighthouse:daily": "node scripts/edgenyc-perf.mjs",
-    "psi:weekly": "node scripts/edgenyc-psi-weekly.mjs",
+    "cwv:daily": "node scripts/edgenyc-cwv-daily.mjs",
+    "psi:weekly": "node scripts/edgenyc-cwv-daily.mjs",
     "crux:history": "node scripts/edgenyc-crux-history.mjs",
     "gsc:daily": "node scripts/edgenyc-gsc-daily.mjs",
     "semrush:import-pages": "node scripts/edgenyc-semrush-import-pages.mjs",

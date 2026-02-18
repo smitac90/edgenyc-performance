@@ -11,6 +11,20 @@
     "https://www.edgenyc.com/visit/getting-here/edge-menu/",
     "https://www.edgenyc.com/events/sky-high-yoga/"
   ],
+  "lighthouse_url_source": {
+    "mode": "gsc_top_pages",
+    "gsc_pages_file": "data/edgenyc-gsc-pages-daily.csv",
+    "top_n": 100,
+    "lookback_days": 28,
+    "domain": "edgenyc.com"
+  },
+  "cwv_url_source": {
+    "mode": "gsc_top_pages",
+    "gsc_pages_file": "data/edgenyc-gsc-pages-daily.csv",
+    "top_n": 100,
+    "lookback_days": 28,
+    "domain": "edgenyc.com"
+  },
   "lighthouse_strategies": [
     "mobile",
     "desktop"

@@ -8,7 +8,7 @@ This repo tracks performance over time for:
 - **Daily Lighthouse (lab)**: appends rows to `data/edgenyc-daily.csv` (mobile + desktop).
 - **Daily alerts**: checks the latest run against thresholds and opens an issue if breached.
 - **Daily GSC export**: appends rows to `data/edgenyc-gsc-pages-daily.csv` and `data/edgenyc-gsc-queries-daily.csv`.
-- **Weekly PSI field snapshot (RUM)**: appends rows to `data/edgenyc-psi-weekly.csv`.
+- **Daily CWV field snapshot (CrUX RUM)**: appends rows to `data/edgenyc-cwv-daily.csv`.
 - **Weekly summary**: writes `reports/weekly-summary.md` with last 7 days averages + deltas.
 - **Weekly SEO summary**: writes `reports/seo-summary.md` combining GSC + Semrush top pages.
 - **Semrush pages import (manual)**: appends rows to `data/edgenyc-semrush-pages.csv`.
@@ -18,10 +18,21 @@ Schedules live in `.github/workflows/`.
 ## Config
 Edit `config/edgenyc.json` to:
 - Add/remove URLs
+- Choose URL source for Lighthouse (`lighthouse_url_source`)
+- Choose URL source for CWV snapshots (`cwv_url_source`)
 - Tune Lighthouse strategies
 - Control how many Lighthouse runs are averaged (`lighthouse_runs`)
 - Update alert thresholds
 - Configure GSC export (site_url, lag, row limits)
+
+`lighthouse_url_source` and `cwv_url_source` modes:
+- `static`: use `urls` from config.
+- `gsc_top_pages`: use top pages from `data/edgenyc-gsc-pages-daily.csv` (falls back to `urls` if missing/empty).
+
+Top-pages settings:
+- `top_n`: number of pages to test (example: `100`)
+- `lookback_days`: aggregate clicks/impressions over this rolling window
+- `domain`: optional host filter (example: `edgenyc.com`)
 
 ## Local usage
 Install deps:
@@ -34,16 +45,19 @@ Run daily Lighthouse (writes to `data/` by default):
 node scripts/edgenyc-perf.mjs
 ```
 
+Note on runtime:
+- `top_n=100` with both strategies and `lighthouse_runs=2` can be a long run. If needed, reduce `lighthouse_runs` to `1` or limit strategies.
+
 Run daily GSC export:
 ```bash
 export GSC_SERVICE_ACCOUNT_JSON='{"type":"service_account",...}'
 node scripts/edgenyc-gsc-daily.mjs
 ```
 
-Run weekly PSI snapshot:
+Run daily CWV snapshot (CrUX):
 ```bash
-export PSI_API_KEY="YOUR_API_KEY"
-node scripts/edgenyc-psi-weekly.mjs
+export CRUX_API_KEY="YOUR_API_KEY"
+node scripts/edgenyc-cwv-daily.mjs
 ```
 
 Generate weekly performance summary:
@@ -100,12 +114,12 @@ Notes:
 
 ## GitHub Secrets
 Set these secrets in GitHub:
-- `PSI_API_KEY`
+- `CRUX_API_KEY`
 - `GSC_SERVICE_ACCOUNT_JSON`
 
 ## Schedule (UTC)
 - Daily Lighthouse: 13:00 UTC (approx 8:00 AM ET)
 - Daily GSC: 14:30 UTC (approx 9:30 AM ET)
-- Weekly PSI: Mondays 13:30 UTC (approx 8:30 AM ET)
+- Daily CWV: 15:00 UTC (approx 10:00 AM ET)
 - Weekly performance summary: Mondays 14:00 UTC (approx 9:00 AM ET)
 - Weekly SEO summary: Mondays 14:00 UTC (approx 9:00 AM ET)

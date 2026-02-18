@@ -3,12 +3,12 @@ import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync, appendFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { resolveUrlsFromConfig } from "./lib/url-source.mjs";
 
 const configPath = process.env.CONFIG_PATH || "config/edgenyc.json";
 const configRaw = readFileSync(configPath, "utf8");
 const config = JSON.parse(configRaw);
 
-const urls = config.urls || [];
 const strategies = config.lighthouse_strategies || ["mobile", "desktop"];
 const runs = Math.max(1, Number(config.lighthouse_runs || 1));
 const thresholds = config.thresholds || {};
@@ -87,6 +87,14 @@ function ensureHeader(filePath) {
 ensureHeader(outFile);
 
 const nowIso = new Date().toISOString();
+const urls = resolveUrlsFromConfig(config, {
+  urlSource: config.lighthouse_url_source || {},
+  purposeLabel: "Lighthouse",
+});
+if (!urls.length) {
+  console.error("No URLs configured for Lighthouse. Set config.urls or lighthouse_url_source.");
+  process.exit(1);
+}
 
 function runLighthouse(url, strategy) {
   const tmpPath = join(tmpdir(), `lh-${strategy}-${Date.now()}-${Math.random().toString(36).slice(2)}.json`);
