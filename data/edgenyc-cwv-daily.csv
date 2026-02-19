@@ -1,0 +1,5 @@
+ISO timestamp of the run (UTC),Page URL measured,Field data scope used (url|origin|none),Largest Contentful Paint p75 (ms),Cumulative Layout Shift p75 (unitless),Interaction to Next Paint p75 (ms),Time to First Byte p75 (ms)
+target: n/a,target: n/a,target: url preferred,target: <= 2500,target: <= 0.1,target: <= 200,target: <= 800
+timestamp_iso,url,field_scope,lcp_p75_ms,cls_p75,inp_p75_ms,ttfb_p75_ms
+2026-02-19T15:52:21.506Z,https://www.edgenyc.com/en/buy-tickets,origin,2198,0.10,161,949
+2026-02-19T15:52:21.506Z,https://www.edgenyc.com/en/sky-skate,origin,2198,0.10,161,949
