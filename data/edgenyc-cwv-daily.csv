@@ -3,3 +3,5 @@ target: n/a,target: n/a,target: url preferred,target: <= 2500,target: <= 0.1,tar
 timestamp_iso,url,field_scope,lcp_p75_ms,cls_p75,inp_p75_ms,ttfb_p75_ms
 2026-02-19T15:52:21.506Z,https://www.edgenyc.com/en/buy-tickets,origin,2198,0.10,161,949
 2026-02-19T15:52:21.506Z,https://www.edgenyc.com/en/sky-skate,origin,2198,0.10,161,949
+2026-02-20T15:39:03.077Z,https://www.edgenyc.com/en/buy-tickets,origin,2186,0.10,162,947
+2026-02-20T15:39:03.077Z,https://www.edgenyc.com/en/sky-skate,origin,2186,0.10,162,947
