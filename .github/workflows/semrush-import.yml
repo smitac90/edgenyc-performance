@@ -1,15 +1,13 @@
-name: Weekly SEO Summary
+name: Semrush Pages Import
 
 on:
-  schedule:
-    - cron: "15 14 * * 1" # Mondays 14:15 UTC (approx 9:15 AM ET), staggered after weekly-summary
   workflow_dispatch: {}
 
 permissions:
   contents: write
 
 jobs:
-  seo:
+  import:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,11 +26,11 @@ jobs:
       - name: Sync with remote
         run: git pull --rebase
 
-      - name: Generate SEO summary
-        run: node scripts/edgenyc-seo-summary.mjs
+      - name: Run Semrush import
+        run: node scripts/edgenyc-semrush-import-pages.mjs
 
-      - name: Commit summary
+      - name: Commit data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: weekly seo summary"
-          file_pattern: "reports/seo-summary.md"
+          commit_message: "chore: semrush pages import"
+          file_pattern: "data/*.csv data/semrush-archive/*"

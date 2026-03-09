@@ -49,6 +49,17 @@ jobs:
           content-filepath: reports/alerts.md
           labels: performance,alert
 
+      - name: Close resolved alert issues
+        if: steps.alerts.outputs.has_alerts != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue list --label performance --label alert --state open --json number \
+            --jq '.[].number' | while read -r issue; do
+            gh issue close "$issue" \
+              --comment "All metrics are back within thresholds. Auto-closing."
+          done
+
       - name: Commit data + alerts
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
