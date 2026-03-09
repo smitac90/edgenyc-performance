@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   cwv:
@@ -34,8 +35,31 @@ jobs:
           CRUX_API_KEY: ${{ secrets.CRUX_API_KEY }}
         run: node scripts/edgenyc-cwv-daily.mjs
 
-      - name: Commit data
+      - name: Check CWV thresholds
+        id: cwv_alerts
+        run: node scripts/edgenyc-cwv-alerts.mjs
+
+      - name: Create issue if CWV alerts
+        if: steps.cwv_alerts.outputs.has_cwv_alerts == 'true'
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "CWV field data alert"
+          content-filepath: reports/cwv-alerts.md
+          labels: performance,cwv,alert
+
+      - name: Close resolved CWV alert issues
+        if: steps.cwv_alerts.outputs.has_cwv_alerts != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue list --label cwv --label alert --state open --json number \
+            --jq '.[].number' | while read -r issue; do
+            gh issue close "$issue" \
+              --comment "All CWV field metrics are back within Good thresholds. Auto-closing."
+          done
+
+      - name: Commit data + alerts
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: daily cwv snapshot"
-          file_pattern: "data/*.csv"
+          file_pattern: "data/*.csv reports/cwv-alerts.md"
