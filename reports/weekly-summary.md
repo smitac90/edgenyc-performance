@@ -1,6 +1,6 @@
 # Weekly Performance Summary
 
-Range: 2026-03-02 to 2026-03-09 (last 7 days)
+Range: 2026-03-09 to 2026-03-16 (last 7 days)
 
 ## Averages (Last 7 Days)
 
@@ -46,14 +46,14 @@ Range: 2026-03-02 to 2026-03-09 (last 7 days)
 | https://www.edgenyc.com/events/sky-high-yoga/ | mobile Δ | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
 | https://www.edgenyc.com/events/sky-high-yoga/ | desktop | n/a | n/a | n/a | n/a | n/a | n/a | n/a |
 | https://www.edgenyc.com/events/sky-high-yoga/ | desktop Δ | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| https://www.edgenyc.com/en/buy-tickets | mobile | 33.8 | 17705 | 0.000 | 0 | 40 | 5553 | 9240 |
-| https://www.edgenyc.com/en/buy-tickets | mobile Δ | +5.1 | -6114.3 | 0.0 | 0.0 | -42.4 | +2233.1 | -1533.6 |
-| https://www.edgenyc.com/en/buy-tickets | desktop | 94.9 | 1126 | 0.000 | 0 | 25 | 108 | 1471 |
-| https://www.edgenyc.com/en/buy-tickets | desktop Δ | +3.2 | -22.9 | -0.0 | 0.0 | -4.4 | -23.0 | -477.3 |
-| https://www.edgenyc.com/en/sky-skate | mobile | 34.4 | 16093 | 0.095 | 0 | 172 | 2276 | 9280 |
-| https://www.edgenyc.com/en/sky-skate | mobile Δ | +2.9 | -1086.2 | +0.0 | 0.0 | -47.3 | +148.8 | -950.0 |
-| https://www.edgenyc.com/en/sky-skate | desktop | 88.6 | 1026 | 0.144 | 0 | 23 | 134 | 1441 |
-| https://www.edgenyc.com/en/sky-skate | desktop Δ | -0.2 | -195.7 | +0.0 | 0.0 | -3.0 | +8.7 | -126.9 |
+| https://www.edgenyc.com/en/buy-tickets | mobile | 30.6 | 21592 | 0.000 | 0 | 56 | 3308 | 11947 |
+| https://www.edgenyc.com/en/buy-tickets | mobile Δ | -3.2 | +3887.5 | 0.0 | 0.0 | +15.5 | -2244.7 | +2707.5 |
+| https://www.edgenyc.com/en/buy-tickets | desktop | 95.1 | 1165 | 0.000 | 0 | 32 | 107 | 1325 |
+| https://www.edgenyc.com/en/buy-tickets | desktop Δ | +0.2 | +38.9 | -0.0 | 0.0 | +6.3 | -1.4 | -145.6 |
+| https://www.edgenyc.com/en/sky-skate | mobile | 31.1 | 20341 | 0.066 | 0 | 60 | 2177 | 11462 |
+| https://www.edgenyc.com/en/sky-skate | mobile Δ | -3.3 | +4248.5 | -0.0 | 0.0 | -112.1 | -99.2 | +2181.8 |
+| https://www.edgenyc.com/en/sky-skate | desktop | 90.7 | 1047 | 0.129 | 0 | 27 | 119 | 1406 |
+| https://www.edgenyc.com/en/sky-skate | desktop Δ | +2.1 | +20.6 | -0.0 | 0.0 | +3.1 | -14.5 | -34.4 |
 
 Notes:
 - Perf increases are good; decreases are bad. For timing metrics, lower is better.
