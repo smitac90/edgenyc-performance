@@ -60,11 +60,11 @@ The following metrics breached thresholds in the latest run:
 | https://www.edgenyc.com/events/sky-high-yoga/ | mobile | speed_index_ms | 9323 | 3400 |
 | https://www.edgenyc.com/events/sky-high-yoga/ | desktop | lh_performance | 82 | 90 |
 | https://www.edgenyc.com/en/buy-tickets | mobile | lh_performance | 27 | 90 |
-| https://www.edgenyc.com/en/buy-tickets | mobile | lcp_ms | 27332 | 2500 |
-| https://www.edgenyc.com/en/buy-tickets | mobile | tbt_ms | 2765 | 200 |
-| https://www.edgenyc.com/en/buy-tickets | mobile | speed_index_ms | 15031 | 3400 |
+| https://www.edgenyc.com/en/buy-tickets | mobile | lcp_ms | 25072 | 2500 |
+| https://www.edgenyc.com/en/buy-tickets | mobile | tbt_ms | 2708 | 200 |
+| https://www.edgenyc.com/en/buy-tickets | mobile | speed_index_ms | 13878 | 3400 |
 | https://www.edgenyc.com/en/sky-skate | mobile | lh_performance | 28 | 90 |
-| https://www.edgenyc.com/en/sky-skate | mobile | lcp_ms | 24930 | 2500 |
-| https://www.edgenyc.com/en/sky-skate | mobile | tbt_ms | 2306 | 200 |
-| https://www.edgenyc.com/en/sky-skate | mobile | speed_index_ms | 11098 | 3400 |
+| https://www.edgenyc.com/en/sky-skate | mobile | lcp_ms | 28352 | 2500 |
+| https://www.edgenyc.com/en/sky-skate | mobile | tbt_ms | 2051 | 200 |
+| https://www.edgenyc.com/en/sky-skate | mobile | speed_index_ms | 14482 | 3400 |
 | https://www.edgenyc.com/en/sky-skate | desktop | cls | 0.131 | 0.100 |
