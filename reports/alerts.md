@@ -59,9 +59,9 @@ The following metrics breached thresholds in the latest run:
 | https://www.edgenyc.com/events/sky-high-yoga/ | mobile | tbt_ms | 2289 | 200 |
 | https://www.edgenyc.com/events/sky-high-yoga/ | mobile | speed_index_ms | 9323 | 3400 |
 | https://www.edgenyc.com/events/sky-high-yoga/ | desktop | lh_performance | 82 | 90 |
-| https://www.edgenyc.com/en/buy-tickets | mobile | lh_performance | 78 | 90 |
+| https://www.edgenyc.com/en/buy-tickets | mobile | lh_performance | 80 | 90 |
 | https://www.edgenyc.com/en/buy-tickets | mobile | cls | 0.193 | 0.100 |
-| https://www.edgenyc.com/en/buy-tickets | mobile | tbt_ms | 636 | 200 |
+| https://www.edgenyc.com/en/buy-tickets | mobile | tbt_ms | 505 | 200 |
 | https://www.edgenyc.com/en/buy-tickets | desktop | cls | 0.102 | 0.100 |
 | https://www.edgenyc.com/en/sky-skate | mobile | cls | 0.193 | 0.100 |
-| https://www.edgenyc.com/en/sky-skate | desktop | cls | 0.102 | 0.100 |
+| https://www.edgenyc.com/en/sky-skate | desktop | cls | 0.197 | 0.100 |

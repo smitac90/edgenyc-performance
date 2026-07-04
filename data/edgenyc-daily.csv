@@ -689,3 +689,7 @@ timestamp_iso,url,strategy,lh_performance,lcp_ms,cls,inp_ms,ttfb_ms,tbt_ms,speed
 2026-07-03T15:12:49.765Z,https://www.edgenyc.com/en/buy-tickets,desktop,97,457.9685,0.1022253743104807,,16.5,0,208.59825
 2026-07-03T15:12:49.765Z,https://www.edgenyc.com/en/sky-skate,mobile,91,1668.1464999999998,0.1930406050826113,,16.5,0,760.19
 2026-07-03T15:12:49.765Z,https://www.edgenyc.com/en/sky-skate,desktop,97,458.485,0.1022253743104807,,17.5,0,207.8295
+2026-07-04T14:39:33.677Z,https://www.edgenyc.com/en/buy-tickets,mobile,79.5,1967.74125,0.1930406050826113,,52,504.5,986.8472388220838
+2026-07-04T14:39:33.677Z,https://www.edgenyc.com/en/buy-tickets,desktop,97,473.51,0.1022253743104807,,59.5,0,231.9035
+2026-07-04T14:39:33.677Z,https://www.edgenyc.com/en/sky-skate,mobile,91,1677.7845,0.1930406050826113,,45.5,0,787.1401389999901
+2026-07-04T14:39:33.677Z,https://www.edgenyc.com/en/sky-skate,desktop,90,765.02,0.19703691510862936,,71,13.5,657.8670791713791
