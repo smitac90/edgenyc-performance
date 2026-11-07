@@ -519,3 +519,5 @@ timestamp_iso,url,field_scope,lcp_p75_ms,cls_p75,inp_p75_ms,ttfb_p75_ms
 2026-11-05T21:20:52.218Z,https://www.edgenyc.com/en/sky-skate,origin,1859,0.03,144,1398
 2026-11-06T20:43:07.795Z,https://www.edgenyc.com/en/buy-tickets,origin,1856,0.03,144,1389
 2026-11-06T20:43:07.795Z,https://www.edgenyc.com/en/sky-skate,origin,1856,0.03,144,1389
+2026-11-07T19:16:15.082Z,https://www.edgenyc.com/en/buy-tickets,origin,1858,0.03,144,1391
+2026-11-07T19:16:15.082Z,https://www.edgenyc.com/en/sky-skate,origin,1858,0.03,144,1391
